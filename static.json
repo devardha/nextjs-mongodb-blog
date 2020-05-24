@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "title": "The Single Source of Truth",
+        "tags": ["React", "Font-End"],
+        "img": "https://wallpapercave.com/wp/wp4923981.jpg",
+        "author": "Ardha Yudhatama",
+        "date": "18 May 2020",
+        "body": "<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus voluptate quas facilis nesciunt explicabo similique nihil sed? Minima maxime dolor reprehenderit debitis quos ut nobis id consectetur deleniti repellendus quidem magnam natus ullam, dolores aut! Ratione unde excepturi rem. Dignissimos eum repellat exercitationem molestias omnis quas excepturi fugiat, praesentium dicta!</p><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus voluptate quas facilis nesciunt explicabo similique nihil sed? Minima maxime dolor reprehenderit debitis quos ut nobis id consectetur deleniti repellendus quidem magnam natus ullam, dolores aut! Ratione unde excepturi rem. Dignissimos eum repellat exercitationem molestias omnis quas excepturi fugiat, praesentium dicta!</p>"
+    },
+    {
+        "id": 2,
+        "title": "Akankah Deno Dapat Menggantikan Nodejs?",
+        "tags": ["Nodejs", "Deno", "JavaScript"],
+        "img": "https://miro.medium.com/max/3440/1*GPQ7MDPCOdpdJSXP2f3Jjw.png",
+        "author": "Ardha Yudhatama",
+        "date": "19 May 2020",
+        "body": "<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis animi molestias, voluptas quaerat id tempore molestiae harum dolorem cumque, voluptates assumenda alias eligendi. Nisi quasi aliquid ipsam cumque sint qui unde porro rerum veritatis dicta a explicabo debitis ab animi fuga enim dolorum magni, minus corrupti quos maxime aspernatur, corporis officia tenetur. Eveniet pariatur possimus sit ducimus ipsam alias dolorem?</p>"
+    },
+    {
+        "id": 3,
+        "title": "Pentingnya Server-Side-Rendering di React",
+        "tags": ["React", "Font-End"],
+        "img": "https://bs-uploads.toptal.io/blackfish-uploads/blog/post/seo/og_image_file/og_image/18023/client-side-vs-server-side-pre-rendering-b43c48127da106c356a983d35f6d8039.png",
+        "author": "Ardha Yudhatama",
+        "date": "19 May 2020",
+        "body": "<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis animi molestias, voluptas quaerat id tempore molestiae harum dolorem cumque, voluptates assumenda alias eligendi. Nisi quasi aliquid ipsam cumque sint qui unde porro rerum veritatis dicta a explicabo debitis ab animi fuga enim dolorum magni, minus corrupti quos maxime aspernatur, corporis officia tenetur. Eveniet pariatur possimus sit ducimus ipsam alias dolorem?</p>"
+    }
+]

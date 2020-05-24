@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
+
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+li{
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+td:not([align]),
+th:not([align]) {
+  text-align: left;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+// Links
+a{
+    text-decoration: none;
+    color:#000;
+    cursor: pointer;
+}
+p{
+    font-weight: 300;
+    font-size: 1.1rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+// Typography
+h1{
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+h2{
+    font-size: 2rem;
+}
+h3{
+    font-size: 1.75rem;
+}
+h4{
+    font-size: 1.5rem;
+}
+h5{
+    font-size: 1.25rem;
+}
+h6{
+    font-size: 1rem;
+}
+
+// Button
+.btn{
+  padding: .6rem .8rem;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-primary{
+  background-color: #0081ff;
+  color:#fff;
+}
+
+// Icon
+.icon{
+  margin-right:5px;
+}
+.header-icon{
+  color: #fff;
+}
+.calendar-icon{
+  margin-left:10px;
+}
+
+.post p{
+  margin-bottom:20px;
+}
+
+.ck-editor__editable_inline{
+  min-height: 400px;
+}
+
+.ck-content{
+  width:70%;
+  margin: 20px auto 0 auto;
+  background-color: #fff;
+  border: 1px solid #c4c4c4 !important;
+}
+
+.ck-toolbar{
+  padding: 0 4.5% !important;
+  border-radius: unset !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 1px solid #c4c4c4;
+  border-top: 1px solid #c4c4c4;
+}
