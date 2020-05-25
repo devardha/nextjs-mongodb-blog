@@ -14,7 +14,7 @@ const DasboardLayout = (props) => {
             .dashboard-content{
                 padding:50px 10%;
             }
-            .ck{
+            .ck {
                 display:none !important;
             }
 
