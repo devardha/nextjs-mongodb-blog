@@ -1,4 +1,5 @@
 import Link from "../Link";
+import Cookie from 'js-cookie'
 
 // Icons
 import DashboardIcon from '@material-ui/icons/Dashboard';
@@ -6,6 +7,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import StarIcon from '@material-ui/icons/Star';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
+import Router from "next/router";
 
 const date = new Date();
 
@@ -20,8 +22,13 @@ const dateNow = `${monthName[month]} ${day} ${year}`;
 
 const DashboardHeader = ()=> {
 
+    const logout = () =>{
+        Cookie.remove("_token");
+        Router.push('/');
+    }
+
     return(
-        <>
+        <div>
             <div className="dashboard-header">
                 <p className="header-time">{dateNow}</p>
             </div>
@@ -30,9 +37,8 @@ const DashboardHeader = ()=> {
                 <Link activeClassName="active" href="/dashboard/posts"><a className="nav-link" ><span className="header-icon"><AssignmentIcon style={{ fontSize: '1rem' }}/></span>Posts</a></Link>
                 <Link activeClassName="active" href="/dashboard/projects"><a className="nav-link" ><span className="header-icon"><StarIcon style={{ fontSize: '1rem' }}/></span>Projects</a></Link>
                 <Link activeClassName="active" href="/dashboard/gallery"><a className="nav-link" ><span className="header-icon"><PhotoCameraIcon style={{ fontSize: '1rem' }}/></span>Gallery</a></Link>
-                <Link activeClassName="active" href="/dashboard/settings"><a className="nav-link" ><span className="header-icon"><SettingsIcon style={{ fontSize: '1rem' }}/></span>Settings</a></Link>
                 <span className="user-info">
-                    <span className="nav-link logout">Sign Out</span>
+                    <a className="nav-link logout" onClick={logout}>Sign Out</a>
                     {/* <button className="user-image"></button> */}
                 </span>
             </div>
@@ -85,7 +91,7 @@ const DashboardHeader = ()=> {
             }
             
             `}</style>
-        </>
+        </div>
     )
 }
 

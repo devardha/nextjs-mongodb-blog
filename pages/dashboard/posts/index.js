@@ -1,26 +1,45 @@
 import DashboardLayout from "../../../components/dashboard/DashboardLayout"
 import PostsList from "../../../components/dashboard/PostsList"
+import Cookies from 'cookies'
+import Router from 'next/router';
+import Head from 'next/head'
 
-export default ({posts})=> {
+const Post = ({posts})=> {
 
     const data = posts.data;
 
     return(
+        <div>
+        <Head>
+            <title>Admin Page - All Post</title>
+        </Head>
         <DashboardLayout>
             <PostsList data={data}/>
         </DashboardLayout>
+        </div>
     )
 }
 
-export async function getStaticProps() {
-    // Call an external API endpoint to get posts.
-    // You can use any data fetching library
-    const res = await fetch('http://localhost:3000/api/posts')
-    const posts = await res.json()
-  
-    // By returning { props: posts }, the Blog component
-    // will receive `posts` as a prop at build time
-    return {
-        props: { posts },
+export async function getServerSideProps({req, res}) {
+    const cookie = new Cookies(req);
+    const token = cookie.get('_token');
+
+    if(!token){
+        if(typeof window === 'undefined'){
+            res.writeHead(302, {location: '/login'})
+            res.end()
+        }
+        else{
+            Router.push('/login');
+        }
     }
+
+    const respond = await fetch('http://localhost:3000/api/posts')
+    const posts = await respond.json()
+  
+
+    return { props: { posts, authenticate: true } }
+
 }
+
+export default Post;

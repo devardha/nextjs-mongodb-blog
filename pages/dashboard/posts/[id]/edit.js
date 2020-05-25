@@ -2,13 +2,12 @@ import { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
 import Link from 'next/link'
 import Router from 'next/router'
-
+import Cookies from 'cookies'
+import Head from 'next/head'
 import CancelIcon from '@material-ui/icons/Cancel';
 import DashboardHeader from "../../../../components/dashboard/DashboardHeader";
 
 const Edit = ({postData})=> {
-
-    console.log(postData);
 
     const [ title, setTitle ] = useState(postData.title);
     const [tags, setTags] = useState(postData.tags);
@@ -68,7 +67,10 @@ const Edit = ({postData})=> {
     }
 
     return(
-        <div className="create-page">  
+        <div className="create-page">
+            <Head>
+                <title>Admin Page - Edit Post</title>
+            </Head>  
             <DashboardHeader/>
             <form onSubmit={onSubmit} >
                 <div className="createpost-header">
@@ -223,11 +225,24 @@ const Edit = ({postData})=> {
     )
 }
 
-Edit.getInitialProps = async ( {query: { id }} )=> {
-    const res = await fetch(`http://localhost:3000/api/posts/${id}`)
+Edit.getInitialProps = async ( {query: { id }, req, res } )=> {
+    const cookie = new Cookies(req);
+    const token = cookie.get('_token');
+
+    if(!token){
+        if(typeof window === 'undefined'){
+            res.writeHead(302, {location: '/login'})
+            res.end()
+        }
+        else{
+            Router.push('/login');
+        }
+    }
+
+    const respond = await fetch(`http://localhost:3000/api/posts/${id}`)
     console.log(id)
 
-    const { data } = await res.json();
+    const { data } = await respond.json();
 
     return { postData: data }
 

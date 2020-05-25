@@ -26,7 +26,7 @@ export default async (req, res)=>{
                 
                 res.status(200).send({ auth: true, token: token });
 
-            } catch (error) {
+            } catch (err) {
                 res.status(500).send({message: "There was a problem authenticating the user.", error: err})
             }
             break;

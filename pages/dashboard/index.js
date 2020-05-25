@@ -2,15 +2,20 @@ import Overview from '../../components/dashboard/Overview'
 import PostsList from '../../components/dashboard/PostsList'
 import DashboardLayout from '../../components/dashboard/DashboardLayout';
 import Link from 'next/link'
+import Cookies from 'cookies'
+import Router from 'next/router';
+import Head from 'next/head'
 
-const Dashboard = ({post})=> {
+const Dashboard = ({post, authenticate})=> {
 
     const data = post;
-    console.log(data);
 
     return(
 
         <DashboardLayout>
+            <Head>
+                <title>Admin Page - Dashboard</title>
+            </Head>
             <Link href="/"><button className="btn btn-primary">Visit Blog</button></Link>
             <div className="overview">
                 <Overview postCount={data.length}/>
@@ -28,19 +33,25 @@ const Dashboard = ({post})=> {
     )
 }
 
-export async function getServerSideProps() {
-    const res = await fetch(`http://localhost:3000/api/posts`);
-    const { data } = await res.json();
+export async function getServerSideProps({req, res}) {
+    const cookie = new Cookies(req);
+    const token = cookie.get('_token');
 
-    return { props: { post: data } }
+    if(!token){
+        if(typeof window === 'undefined'){
+            res.writeHead(302, {location: '/login'})
+            res.end()
+        }
+        else{
+            Router.push('/login');
+        }
+    }
+
+    const respond = await fetch(`http://localhost:3000/api/posts`);
+    const { data } = await respond.json();
+
+    return { props: { post: data, authenticate: true } }
+
 }
-
-// Dashboard.getInitialProps = async ( {query: { id }} )=> {
-//     const res = await fetch(`http://localhost:3000/api/posts`)
-//     const { data } = await res.json();
-
-//     return ({ post: data })
-
-// }
 
 export default Dashboard;
