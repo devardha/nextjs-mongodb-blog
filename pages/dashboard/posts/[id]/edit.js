@@ -114,6 +114,9 @@ const Edit = ({postData})=> {
 
             <style jsx>{`
 
+            .create-page{
+                padding-bottom:40px;
+            }
             .cancel-button{
                 margin-left:10px;
             }
@@ -191,6 +194,7 @@ const Edit = ({postData})=> {
             }
             .createpost-button{
                 display:flex;
+                align-items:center;
                 margin-left:auto;
             }
             .createpost-header{

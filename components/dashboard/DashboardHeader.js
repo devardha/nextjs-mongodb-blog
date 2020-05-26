@@ -38,7 +38,7 @@ const DashboardHeader = ()=> {
                 <Link activeClassName="active" href="/dashboard/projects"><a className="nav-link" ><span className="header-icon"><StarIcon style={{ fontSize: '1rem' }}/></span>Projects</a></Link>
                 <Link activeClassName="active" href="/dashboard/gallery"><a className="nav-link" ><span className="header-icon"><PhotoCameraIcon style={{ fontSize: '1rem' }}/></span>Gallery</a></Link>
                 <span className="user-info">
-                    <a className="nav-link logout" onClick={logout}>Sign Out</a>
+                    <a className="logout btn-primary btn" onClick={logout}>Sign Out</a>
                     {/* <button className="user-image"></button> */}
                 </span>
             </div>
@@ -60,32 +60,37 @@ const DashboardHeader = ()=> {
                 position:relative;
             }
             .active{
-                background-color:#0f78de;
+                background-color:#f8f8f8;
             }
             .dashboard-header{
                 display:flex;
                 justify-content:center;
-                background-color:#292929;
+                background: -webkit-gradient(linear,left top,left bottom,from(#2d97ff),to(#0081ff));
+                border-bottom: 1px solid #eee;
+                padding: 8px 0;
                 padding: 8px 0;
             }
             .header-time{
-                font-size:.8rem;
-                color:#fff;
+                font-size:.9rem;
+                color:#eee;
             }
             .dashboard-nav{
                 display:flex;
                 padding: 0 10%;
                 align-items:center;
-                background-color:#0081ff;
+                background-color: #fff;
+                border-bottom: 1px solid #eee;
             }
             .header-icon{
                 transform: translateY(2px);
                 margin-right:5px;
+                color:#aaa;
             }
             .nav-link{
                 padding: 15px 20px;
-                color:#fff;
+                color:#222;
                 font-size:.9rem;
+                font-weight: 300;
                 display:flex;
                 align-items:center;
             }

@@ -65,17 +65,6 @@ const Create = ()=> {
         Router.push('/dashboard');
     }
 
-    // Logging Input
-    const testPosts = {
-        title: title,
-        tags: tags,
-        img: img,
-        author: 'Ardha Yudhatama',
-        body: value,
-    }
-    console.log(testPosts);
-
-
     return(
         <div className="create-page">
             <Head>
@@ -123,6 +112,9 @@ const Create = ()=> {
 
             <style jsx>{`
 
+            .create-page{
+                padding-bottom:40px;
+            }
             .cancel-button{
                 margin-left:10px;
             }
@@ -201,6 +193,7 @@ const Create = ()=> {
             .createpost-button{
                 display:flex;
                 margin-left:auto;
+                align-items:center;
             }
             .createpost-header{
                 display:flex;

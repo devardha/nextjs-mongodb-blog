@@ -23,6 +23,7 @@ const Navbar = ()=> {
         }
         .nav-link{
             padding: 1.5rem 1.5rem;
+            font-weight:300;
         }
         .navbar{
             background-color:#fff;

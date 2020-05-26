@@ -36,7 +36,7 @@ h4,
 h5,
 h6 {
   font-size: 100%;
-  font-weight: normal;
+  font-weight: 300;
 }
 
 ul {
@@ -44,6 +44,7 @@ ul {
 }
 li{
   list-style: none;
+  font-weight: 300;
 }
 
 button,
@@ -87,7 +88,7 @@ th:not([align]) {
 }
 
 body{
-    font-family: 'Open Sans', sans-serif;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
     font-size: 16px;
     background-color: #f9f9f9;
 }
@@ -101,7 +102,7 @@ a{
 p{
     font-weight: 300;
     font-size: 1.1rem;
-    font-family: 'Open Sans', sans-serif;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
 
 // Typography
@@ -127,14 +128,16 @@ h6{
 
 // Button
 .btn{
-  padding: .6rem .8rem;
+  padding: .5rem .8rem;
   border: none;
-  font-size: 1rem;
+  font-size: .9rem;
+  border-radius:3px;
   cursor: pointer;
+  box-shadow: #037af0 0px -1px 0px inset;
 }
 
 .btn-primary{
-  background-color: #0081ff;
+  background: -webkit-gradient(linear,left top,left bottom,from(#2d97ff),to(#0081ff));
   color:#fff;
 }
 
