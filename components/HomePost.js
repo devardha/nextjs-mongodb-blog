@@ -25,7 +25,7 @@ const HomePost = (props)=> {
                             <li key={index}>{label}</li>
                         )
                     })}</span>
-                    <Link href={`/blog/${props.id}`}><h1 className="post-title">{props.title}</h1></Link>
+                    <Link href={`/blog/${props.id}`}><a className="post-title">{props.title}</a></Link>
                     <h3 className="post-detail">{userIcon} By {props.author} {dateIcon} {props.date}</h3>
                     <div className="details">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam natus ullam ipsa nemo odio dolores incidunt? Nobis quaerat reiciendis sint temporibus minus delectus iure cupiditate nemo impedit, ipsam aut perferendis.</p>
@@ -37,6 +37,8 @@ const HomePost = (props)=> {
 
         .post-title{
             cursor:pointer;
+            font-size:2.5rem;
+            font-weight:800;
         }
         .post-title:hover{
             color:#0081ff;
@@ -50,7 +52,7 @@ const HomePost = (props)=> {
             font-size:.9rem;
             font-family: 'Open Sans', sans-serif;
             margin-top:10px;
-            color:#000;
+            color:#999;
             align-items:center;
             display: flex;
             margin-bottom:5px;

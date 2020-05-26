@@ -93,11 +93,23 @@ body{
     background-color: #fff;
 }
 
+body::-webkit-scrollbar {
+  width: .6em;
+  background-color: #eee;
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #0081ff;
+}
+
 // Links
 a{
     text-decoration: none;
     color:#000;
     cursor: pointer;
+}
+a:hover{
+  color: #037af0;
 }
 p{
     font-weight: 300;

@@ -4,7 +4,7 @@ const Footer = ()=> {
         <div className="footer">
 
             <div className="credit">
-                <span>Made with ❤️ by dev.ardha</span>
+                <span>Made with ❤️ and a keyboard by dev.ardha</span>
             </div>
         </div>
         <style jsx>{`

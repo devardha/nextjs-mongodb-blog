@@ -48,6 +48,7 @@ const Post = (props)=> {
         }
         .post-title{
             font-family:"Open Sans",sans-serif;
+            font-size:3.5rem;
         }
         .blog-post{
             margin-bottom:70px;
@@ -58,12 +59,13 @@ const Post = (props)=> {
             margin-top:5px;
             width:100%;
             margin-bottom:1.25rem;
+            border-radius:10px;
         }
         .author-name{
             font-size:1rem;
             font-family: 'Open Sans', sans-serif;
             margin-top:10px;
-            color:#000;
+            color:#999;
             align-items:center;
         }
         .author-name{
