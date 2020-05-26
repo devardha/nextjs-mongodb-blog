@@ -31,7 +31,8 @@ export default async(req, res)=> {
             try {
                 const posts = await Posts.findByIdAndUpdate(id, req.body, {
                     new: true,
-                    runValidator:true
+                    runValidator:true,
+                    useFindAndModify:false
                 })
                 
                 if(!posts){

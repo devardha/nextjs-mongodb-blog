@@ -1,12 +1,12 @@
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import DateRangeIcon from '@material-ui/icons/DateRange';
-
+import { useRouter } from 'next/router'
 import reactHTMLParser from 'react-html-parser'
 
 const Post = (props)=> {
 
-    const userIcon = <span className="icon"><PersonOutlineIcon style={{ fontSize: '1.4rem' }}/></span>
-    const dateIcon = <span className="icon calendar-icon"><DateRangeIcon style={{ fontSize: '1.4rem' }}/></span>
+    const userIcon = <span className="post-icon"><PersonOutlineIcon style={{ fontSize: '1.4rem' }}/></span>
+    const dateIcon = <span className="post-icon calendar-icon"><DateRangeIcon style={{ fontSize: '1.4rem' }}/></span>
     const label = props.label;
 
     return(
@@ -32,7 +32,6 @@ const Post = (props)=> {
         
         .post{
             text-align:justify;
-            text-indent:2rem;
             line-height: 30px;
         }
         .labels{
@@ -53,10 +52,11 @@ const Post = (props)=> {
         .blog-post{
             margin-bottom:70px;
             padding-bottom:70px;
-            border-bottom:2px solid #eee;
+            border-bottom:1px solid #eee;
         }
         img{
             margin-top:5px;
+            width:100%;
             margin-bottom:1.25rem;
         }
         .author-name{

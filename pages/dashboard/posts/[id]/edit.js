@@ -54,14 +54,13 @@ const Edit = ({postData})=> {
           title: title,
           tags: tags,
           img: img,
-          author: 'Ardha Yudhatama',
+          author: postData.username,
           body: value,
         }
 
         const postId = postData._id
 
-        axios.put(`http://localhost:3000/api/posts/${postId}`, posts)
-             .then(res => console.log(res.data));
+        axios.put(`http://localhost:3000/api/posts/${postId}`, posts);
     
         Router.push('/dashboard')
     }
@@ -244,7 +243,6 @@ Edit.getInitialProps = async ( {query: { id }, req, res } )=> {
     }
 
     const respond = await fetch(`http://localhost:3000/api/posts/${id}`)
-    console.log(id)
 
     const { data } = await respond.json();
 

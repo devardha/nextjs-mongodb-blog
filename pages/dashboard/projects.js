@@ -35,7 +35,6 @@ export async function getServerSideProps({req, res}) {
     })
 
     const { data } = await respond.json();
-    console.log(data);
 
     return { props: { authenticate: true } }
 

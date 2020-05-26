@@ -7,7 +7,7 @@ import Head from 'next/head'
 import CancelIcon from '@material-ui/icons/Cancel';
 import DashboardHeader from "../../../components/dashboard/DashboardHeader";
 
-const Create = ()=> {
+const Create = ({me})=> {
 
     const [ title, setTitle ] = useState("");
     const [tags, setTags] = useState([]);
@@ -55,12 +55,11 @@ const Create = ()=> {
           title: title,
           tags: tags,
           img: img,
-          author: 'Ardha Yudhatama',
+          author: me.username,
           body: value,
         }
 
-        axios.post('http://localhost:3000/api/posts', posts)
-             .then(res => console.log(res.data));
+        axios.post('http://localhost:3000/api/posts', posts);
         
         Router.push('/dashboard');
     }
@@ -82,7 +81,7 @@ const Create = ()=> {
                     </div>
                 </div>
             </form>
-            { editorLoaded ? <CKEditor onInit={ editor => { console.log( 'Editor is ready to use!', editor );editor.ui.getEditableElement().parentElement.insertBefore(editor.ui.view.toolbar.element,editor.ui.getEditableElement());} }editor={ DecoupledEditor }onChange={handleOnChange}/> : <div></div>}
+            { editorLoaded ? <CKEditor onInit={ editor => { editor.ui.getEditableElement().parentElement.insertBefore(editor.ui.view.toolbar.element,editor.ui.getEditableElement());} }editor={ DecoupledEditor }onChange={handleOnChange}/> : <div></div>}
             <div className="dashboard-content">
             <div className="tags-input">
                 <ul id="tags">
@@ -241,7 +240,15 @@ export async function getServerSideProps({req, res}) {
         }
     }
 
-    return { props: { authenticate: true } }
+    const respond = await fetch('http://localhost:3000/api/auth/me',{
+        headers: {
+            'x-access-token': token,
+        }
+    })
+
+    const { data } = await respond.json();
+
+    return { props: { me: data } }
 
 }
 

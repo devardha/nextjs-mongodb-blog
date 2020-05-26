@@ -90,7 +90,7 @@ th:not([align]) {
 body{
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
     font-size: 16px;
-    background-color: #f9f9f9;
+    background-color: #fff;
 }
 
 // Links
@@ -174,4 +174,9 @@ h6{
   border-right: none !important;
   border-bottom: 1px solid #c4c4c4;
   border-top: 1px solid #c4c4c4;
+}
+
+.post-icon{
+  transform: translateY(3px);
+  margin-right: 5px
 }

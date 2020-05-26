@@ -1,12 +1,11 @@
 import Layout from '../components/Layout'
 import Post from '../components/Post'
 import Head from 'next/head'
-
-import Data from '../static.json'
+import HomePost from '../components/HomePost';
 
 export default function({posts}){
 
-    const data = Data;
+    const data = posts.data;
 
     return(
         <Layout>
@@ -17,14 +16,16 @@ export default function({posts}){
                 <div className="post-feed">
                     { data.map((post, index)=>{
                         return(
-                            <Post
+                            <HomePost
+                            id={post._id}
                             key={index}
                             title={post.title}
                             label={post.tags}
                             body={post.body}
                             author={post.author}
                             date={post.date}
-                            img={post.img}/>
+                            img={post.img}
+                        />
                         )
                     }) }
                 </div>
@@ -35,8 +36,7 @@ export default function({posts}){
                 display:flex;
                 flex-direction:column;
                 width:100%;
-                padding:70px 20% 50px 20%;
-                text-align:center;
+                padding: 70px 10% 70px 10%;
             }
             
             `}</style>
@@ -44,18 +44,9 @@ export default function({posts}){
     )
 }
 
-
 export async function getStaticProps() {
-    // Call an external API endpoint to get posts.
-    // You can use any data fetching library
     const res = await fetch('http://localhost:3000/api/posts')
     const posts = await res.json()
-  
-    // By returning { props: posts }, the Blog component
-    // will receive `posts` as a prop at build time
-    return {
-        props: {
-            posts,
-        },
-    }
+
+    return { props: { posts } }
 }

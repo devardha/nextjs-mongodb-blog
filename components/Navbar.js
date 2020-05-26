@@ -5,7 +5,7 @@ const Navbar = ()=> {
         <>
         <div className="navbar">
             <div className="nav-links">
-                <Link activeClassName="active" href="/"><a className="nav-link">Home</a></Link>
+                <Link activeClassName="active" href="/"><a className="nav-link">Blog</a></Link>
                 <Link activeClassName="active" href="/about"><a className="nav-link">About</a></Link>
                 <Link activeClassName="active" href="/projects"><a className="nav-link">Projects</a></Link>
                 <Link activeClassName="active" href="/gallery"><a className="nav-link">Gallery</a></Link>
@@ -19,11 +19,12 @@ const Navbar = ()=> {
         .nav-links{
             display:flex;
             width:100%;
-            justify-content:center;
+            padding:0 5%;
         }
         .nav-link{
-            padding: 1.5rem 1.5rem;
-            font-weight:300;
+            padding: 1rem 1.5rem;
+            font-weight: 300;
+            font-size: .9rem;
         }
         .navbar{
             background-color:#fff;

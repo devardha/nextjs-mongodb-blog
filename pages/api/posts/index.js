@@ -13,7 +13,8 @@ export default async (req, res)=> {
             try{
                 const posts = await Posts.find({});
 
-                res.status(200).json({ success: true, data: posts })
+                res.status(200).json({ success: true, data: posts });
+                
             } catch(error){
                 res.status(400).json({ success: false });
             }
@@ -24,7 +25,8 @@ export default async (req, res)=> {
             try{
                 const posts = await Posts.create(req.body);
 
-                res.status(201).json({ success: true, data: posts });
+                res.status(201).json({ success: true, data: posts })
+                
             } catch(error){
                 res.status(400).json({ success: false });
             }

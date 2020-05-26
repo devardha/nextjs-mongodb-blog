@@ -22,6 +22,7 @@ const Footer = ()=> {
             bottom:0;
             padding: 10px 0 30px 0;
             text-align:center;
+            font-weight:300;
             width:100%;
         }
         
