@@ -37,7 +37,9 @@ const PostsList = ( props )=> {
                                 <span className="edit-icon icon"><EditIcon style={{ fontSize: '1rem' }}/></span>
                             </Link>
                                 <span className="delete-icon icon" onClick={() => handleRemove(value._id)}><DeleteIcon style={{ fontSize: '1rem' }}/></span>
+                            <Link href={`/blog/${value.slug}`}> 
                                 <span className="view-icon icon"><VisibilityIcon style={{ fontSize: '1rem' }}/></span>
+                            </Link>
                             </div>
                             </li>
                     )

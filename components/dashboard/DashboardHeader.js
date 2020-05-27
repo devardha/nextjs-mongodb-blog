@@ -50,6 +50,9 @@ const DashboardHeader = ()=> {
                 align-items:center;
                 position:relative;
             }
+            .logout:hover{
+                color:#fff;
+            }
             .user-image{
                 height:30px;
                 width:30px;
@@ -65,7 +68,7 @@ const DashboardHeader = ()=> {
             .dashboard-header{
                 display:flex;
                 justify-content:center;
-                background: -webkit-gradient(linear,left top,left bottom,from(#2d97ff),to(#0081ff));
+                background: -webkit-gradient(linear,left top,left bottom,from(#2b2b2b),to(#292929));
                 border-bottom: 1px solid #eee;
                 padding: 8px 0;
                 padding: 8px 0;

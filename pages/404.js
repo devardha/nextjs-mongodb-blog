@@ -1,7 +1,11 @@
+import Head from 'next/head'
 
 export default (props) => {
   return(
       <div>
+          <Head>
+              <title>404 - Page Not Found</title>
+          </Head>
           <div className="page-container">
               <h1 className="error-code">404</h1>
               <h3 className="error-message">Maap, salah alamat</h3>

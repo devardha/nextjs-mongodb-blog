@@ -69,7 +69,6 @@ const Create = ({me})=> {
             <Head>
                 <title>Admin Page - Create Post</title>
             </Head>    
-            <DashboardHeader/>
             <form onSubmit={onSubmit} >
                 <div className="createpost-header">
                     <div className="row">

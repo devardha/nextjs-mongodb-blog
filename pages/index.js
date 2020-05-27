@@ -10,11 +10,11 @@ export default function({posts}){
     return(
         <Layout>
             <Head>
-                <title>Ardha.dev Official Blog</title>
+                <title>devArdha Official Blog</title>
             </Head>
             <div className="content">
                 <div className="post-feed">
-                    { data.map((post, index)=>{
+                    { data.slice(0).reverse().map((post, index)=>{
                         return(
                             <HomePost
                             id={post._id}

@@ -1,6 +1,6 @@
-import Head from 'next/head'
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import DateRangeIcon from '@material-ui/icons/DateRange';
+import reactHTMLParser from 'react-html-parser'
 import Link from 'next/link'
 
 const HomePost = (props)=> {
@@ -19,9 +19,6 @@ const HomePost = (props)=> {
 
     return(
         <>
-        <Head>
-            <title>Ardha.dev Official Blog - Projects</title>
-        </Head>
         <div className="content">
             <div className="post-item">
                 <div className="thumbnail">
@@ -36,7 +33,9 @@ const HomePost = (props)=> {
                     <Link href={`/blog/[slug]`} as={`/blog/${props.slug}`}><a className="post-title">{props.title}</a></Link>
                     <h3 className="post-detail">{userIcon} By {props.author} {dateIcon} {time}</h3>
                     <div className="details">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam natus ullam ipsa nemo odio dolores incidunt? Nobis quaerat reiciendis sint temporibus minus delectus iure cupiditate nemo impedit, ipsam aut perferendis.</p>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum atque soluta placeat sed vero tempora culpa eligendi quia distinctio dicta explicabo, saepe quas id. Veniam a dolorum magnam accusantium mollitia.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -74,7 +73,7 @@ const HomePost = (props)=> {
             color: #fff;
             padding: .5rem;
             border-radius: 5px;
-            margin: 0 5px 0 0;
+            margin: 0 10px 0 0;
         }
         p{
             text-align:justify;
@@ -90,7 +89,8 @@ const HomePost = (props)=> {
         }
         .post-item{
             display: flex;
-            margin-bottom:2rem;
+            padding-bottom:1.5rem;
+            margin-bottom:1.5rem;
         }
         .thumbnail{
             height:240px;
@@ -101,6 +101,7 @@ const HomePost = (props)=> {
             width:70%;
             display:flex;
             flex-direction:column;
+            align-items: flex-start;
         }
         
         `}</style>

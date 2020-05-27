@@ -1,7 +1,11 @@
 import Link from './Link'
 import SearchIcon from '@material-ui/icons/Search';
+import { useState } from 'react'
 
 const Navbar = ()=> {
+
+    const [ onSearch, setOnSearch ] = useState(false);
+
     return(
         <>
         <div className="navbar">
@@ -11,30 +15,51 @@ const Navbar = ()=> {
                 <Link activeClassName="active" href="/projects"><a className="nav-link">Projects</a></Link>
                 <Link activeClassName="active" href="/gallery"><a className="nav-link">Gallery</a></Link>
                 <div className="search">
-                    <input type="text" name="search" id="search" placeholder="Search"/>
+                    <span className="search-icon" onClick={() => setOnSearch(!onSearch)}><SearchIcon/></span>
                 </div>
             </div>
         </div>
+        <div className="searchbar">
+            <input type="text" placeholder="Search here..."/>
+        </div>
         <style jsx>{`
         
+        .search-icon{
+            cursor:pointer;
+        }
         .search{
             display:flex;
             align-items:center;
             margin-left:auto;
         }
+        .searchbar{
+            display:flex;
+            justify-content:center;
+        }
         input{
-            height:35px;
-            padding: 0 5px;
+            height:40px;
+            width:60%;
+            margin:20px 0;
+            display: ${onSearch ? 'block' : 'none'};
+            padding: 0 10px;
             border-radius:3px;
-            border: 1px solid #eee;
+            border: none;
+            position:relative;
+            background-color:#f9f9f9;
+        }
+        input::placeholder{
+            font-size:.9rem;
+            font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+            font-weight:300;
         }
         .active{
-            border-bottom: 2px solid #292929;
+            border-bottom: 2px solid #037af0;
+            color: #037af0;
         }
         .nav-links{
             display:flex;
             width:100%;
-            padding:0 5%;
+            padding:0 10%;
         }
         .nav-link{
             padding: 1rem 1.5rem;

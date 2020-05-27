@@ -105,7 +105,7 @@ const Edit = ({postData})=> {
                     placeholder="Press enter to add tags"
                 />
             </div>
-            <input className="input img-input" type="text" placeholder="Insert image url here" onChange={(e) => setImg(e.target.value)}/>
+            <input className="input img-input" type="text" placeholder="Insert image url here" onChange={(e) => setImg(e.target.value)} value={img} />
             </div>
             {/* <div className="preview">
                 {ReactHTMLParser(value)}

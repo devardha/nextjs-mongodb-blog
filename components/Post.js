@@ -20,7 +20,7 @@ const Post = (props)=> {
     return(
         <>
         <Head>
-            <title>{props.title} - dev.Ardha</title>
+            <title>{props.title} - devArdha</title>
         </Head>
         <div className="blog-post">
             <div className="post-header">

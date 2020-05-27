@@ -6,7 +6,7 @@ export default () => {
         <>
         <Layout>
         <Head>
-            <title>Ardha.dev Official Blog - Projects</title>
+            <title>devArdha Official Blog - Projects</title>
         </Head>
         <div className="content">
             <ol className="grid-group">

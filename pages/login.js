@@ -2,6 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import Router from 'next/router'
 import Cookie from 'js-cookie'
+import Head from 'next/head'
 
 export default ()=> {
 
@@ -24,6 +25,9 @@ export default ()=> {
 
     return(
         <>
+        <Head>
+            <title>Admin Login</title>
+        </Head>
         <div className="page">
             <h1>Login</h1>
             <form onSubmit={onSubmit}>

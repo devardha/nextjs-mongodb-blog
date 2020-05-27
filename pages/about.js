@@ -6,7 +6,7 @@ export default function(){
     return(
         <Layout>
             <Head>
-                <title>Ardha.dev Official Blog - About</title>
+                <title>devArdha Official Blog - About</title>
             </Head>
             <div className="content">
                 <div className="about-page">
