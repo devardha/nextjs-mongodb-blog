@@ -24,7 +24,7 @@ const PostsList = ( props )=> {
                 <Link href="/dashboard/posts/create"><button className="btn btn-primary">Create Post</button></Link>
             </div>
             <ul>
-                { data.map( (value, i) => {
+                { data.slice(0).reverse().map( (value, i) => {
                     return(
                             <li className="post-item" key={i}>{value.title}
                             {value.tags.map((tag, i) => {

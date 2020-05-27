@@ -70,7 +70,6 @@ const Edit = ({postData})=> {
             <Head>
                 <title>Admin Page - Edit Post</title>
             </Head>  
-            <DashboardHeader/>
             <form onSubmit={onSubmit} >
                 <div className="createpost-header">
                     <div className="row">
