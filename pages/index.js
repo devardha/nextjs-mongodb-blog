@@ -25,6 +25,7 @@ export default function({posts}){
                             author={post.author}
                             date={post.date}
                             img={post.img}
+                            slug={post.slug}
                         />
                         )
                     }) }

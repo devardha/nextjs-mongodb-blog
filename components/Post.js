@@ -1,6 +1,6 @@
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import DateRangeIcon from '@material-ui/icons/DateRange';
-import { useRouter } from 'next/router'
+import Head from 'next/head'
 import reactHTMLParser from 'react-html-parser'
 
 const Post = (props)=> {
@@ -9,8 +9,19 @@ const Post = (props)=> {
     const dateIcon = <span className="post-icon calendar-icon"><DateRangeIcon style={{ fontSize: '1.4rem' }}/></span>
     const label = props.label;
 
+    const now = new Date(props.date)
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const year = now.getFullYear()
+    const month = months[now.getMonth()]
+    const date = now.getDate();
+
+    const time = `${month}  ${date}  ${year}`
+
     return(
         <>
+        <Head>
+            <title>{props.title} - dev.Ardha</title>
+        </Head>
         <div className="blog-post">
             <div className="post-header">
                 <span className="labels">{label.map((label, index)=>{
@@ -19,7 +30,7 @@ const Post = (props)=> {
                     )
                 })}</span>
                 <h1 className="post-title">{props.title}</h1>
-                <h3 className="author-name">{userIcon} By {props.author} {dateIcon} {props.date}</h3>
+                <h3 className="author-name">{userIcon} By {props.author} {dateIcon} {time}</h3>
             </div>
             <div className="post-body">
                 <img src={props.img} alt=""/>

@@ -1,13 +1,7 @@
-import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
-import DateRangeIcon from '@material-ui/icons/DateRange';
 import Layout from '../../components/Layout'
 import Post from '../../components/Post'
 
 const PostPage = ({posts})=> {
-
-    const userIcon = <span className="icon"><PersonOutlineIcon style={{ fontSize: '1.4rem' }}/></span>
-    const dateIcon = <span className="icon calendar-icon"><DateRangeIcon style={{ fontSize: '1.4rem' }}/></span>
-    // const label = props.label;
 
     return(
         <>
@@ -15,12 +9,12 @@ const PostPage = ({posts})=> {
         <div className="content">
                 <div className="post-feed">
                     <Post
-                    id={posts._id}
                     title={posts.title}
                     label={posts.tags}
                     body={posts.body}
                     author={posts.author}
                     date={posts.date}
+                    slug={posts.slug}
                     img={posts.img}/>
                 </div>
             </div>
@@ -40,10 +34,8 @@ const PostPage = ({posts})=> {
     )
 }
 
-PostPage.getInitialProps = async ( {query: { id }, req, res } )=> {
-    const respond = await fetch(`http://localhost:3000/api/posts/${id}`)
-    console.log(id)
-
+PostPage.getInitialProps = async ( {query: { slug }} )=> {
+    const respond = await fetch(`http://localhost:3000/api/posts/blog/${slug}`)
     const { data } = await respond.json();
 
     return { posts: data }

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const mongooseSlugPlugin = require('mongoose-slug-plugin');
 
 const PostsSchema = new mongoose.Schema({
     title: {
@@ -22,6 +23,8 @@ const PostsSchema = new mongoose.Schema({
         type: String
     }
 })
+
+PostsSchema.plugin(mongooseSlugPlugin, { tmpl: '<%=title%>' });
 
 // const Posts = mongoose.model.Posts || mongoose.model('Posts', PostsSchema);
 

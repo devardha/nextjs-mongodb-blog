@@ -9,6 +9,14 @@ const HomePost = (props)=> {
     const dateIcon = <span className="post-icon calendar-icon"><DateRangeIcon style={{ fontSize: '1.2rem' }}/></span>
     const label = props.label;
 
+    const now = new Date(props.date)
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const year = now.getFullYear()
+    const month = months[now.getMonth()]
+    const date = now.getDate();
+
+    const time = `${month}  ${date}  ${year}`
+
     return(
         <>
         <Head>
@@ -25,8 +33,8 @@ const HomePost = (props)=> {
                             <li key={index}>{label}</li>
                         )
                     })}</span>
-                    <Link href={`/blog/${props.id}`}><a className="post-title">{props.title}</a></Link>
-                    <h3 className="post-detail">{userIcon} By {props.author} {dateIcon} {props.date}</h3>
+                    <Link href={`/blog/[slug]`} as={`/blog/${props.slug}`}><a className="post-title">{props.title}</a></Link>
+                    <h3 className="post-detail">{userIcon} By {props.author} {dateIcon} {time}</h3>
                     <div className="details">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam natus ullam ipsa nemo odio dolores incidunt? Nobis quaerat reiciendis sint temporibus minus delectus iure cupiditate nemo impedit, ipsam aut perferendis.</p>
                     </div>
@@ -66,7 +74,7 @@ const HomePost = (props)=> {
             color: #fff;
             padding: .5rem;
             border-radius: 5px;
-            margin: 0 5px;
+            margin: 0 5px 0 0;
         }
         p{
             text-align:justify;
@@ -82,6 +90,7 @@ const HomePost = (props)=> {
         }
         .post-item{
             display: flex;
+            margin-bottom:2rem;
         }
         .thumbnail{
             height:240px;
