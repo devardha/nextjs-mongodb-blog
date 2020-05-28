@@ -1,14 +1,21 @@
 import Link from './Link'
 import SearchIcon from '@material-ui/icons/Search';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import Brightness2Icon from '@material-ui/icons/Brightness2';
 
 const Navbar = ()=> {
 
     const [ onSearch, setOnSearch ] = useState(false);
+    const [ darkMode, setDarkMode ] = useState(false);
+
+    useEffect(() => {
+        console.log(`Is in dark mode? ${darkMode}`);
+        localStorage.setItem("DARK_MODE", darkMode);
+    }, [darkMode]);
 
     return(
-        <>
-        <div className="navbar">
+        < >
+        <div className="navbar" data-theme={darkMode ? "dark" : "light"} >
             <div className="nav-links">
                 <Link activeClassName="active" href="/"><a className="nav-link">Blog</a></Link>
                 <Link activeClassName="active" href="/about"><a className="nav-link">About</a></Link>
@@ -16,6 +23,7 @@ const Navbar = ()=> {
                 <Link activeClassName="active" href="/gallery"><a className="nav-link">Gallery</a></Link>
                 <div className="search">
                     <span className="search-icon" onClick={() => setOnSearch(!onSearch)}><SearchIcon/></span>
+                    <span className="darkmode-toggle" onClick={() => setDarkMode(!darkMode)}><Brightness2Icon/></span>
                 </div>
             </div>
         </div>
@@ -24,6 +32,13 @@ const Navbar = ()=> {
         </div>
         <style jsx>{`
         
+        .darkmode-toggle{
+            margin-left:20px;
+            cursor:pointer;
+        }
+        .darkmode-toggle:hover{
+            color:#037af0;
+        }
         .search-icon{
             cursor:pointer;
         }

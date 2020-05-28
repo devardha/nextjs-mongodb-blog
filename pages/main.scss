@@ -2,6 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 
+// LightMode
+:root {
+  --bg-color: #fff;
+  --text-color: #000;
+}
+
+// DarkMode
+[data-theme="dark"] {
+  --bg-color: #000;
+  --text-color: #fff;
+}
+
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
 html,
 body,
@@ -91,7 +103,8 @@ th:not([align]) {
 body{
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
     font-size: 16px;
-    background-color: #fff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 body::-webkit-scrollbar {
