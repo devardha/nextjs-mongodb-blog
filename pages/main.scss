@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
 html,
@@ -191,4 +192,50 @@ h6{
 .post-icon{
   transform: translateY(3px);
   margin-right: 5px
+}
+
+blockquote{
+  padding: 24px 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: monospace;
+  background: #222;
+  margin-bottom: 20px;
+
+  p{
+    margin-bottom: 0px !important;
+    font-family: "Source Code Pro", monospace;
+    font-weight: 400;
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.5rem;
+  }
+}
+
+.tox .tox-sidebar-wrap{
+  width: 70%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+.tox .tox-editor-container{
+  padding-bottom: 0px;
+}
+
+.tox-tinymce{
+  height:75% !important;
+  border:none !important;
+}
+
+.tox .tox-statusbar{
+  display:none !important;
+}
+
+.tox .tox-menubar{
+  padding: 0 5% 0 5% !important;
+}
+
+.tox .tox-menubar+.tox-toolbar, .tox .tox-menubar+.tox-toolbar-overlord .tox-toolbar__primary{
+  padding: 0 5% !important;
 }

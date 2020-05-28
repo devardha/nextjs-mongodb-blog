@@ -1,32 +1,25 @@
+import React from 'react';
+import { Editor } from '@tinymce/tinymce-react';
+import Link from 'next/link'
+import NoSSR from 'react-no-ssr';
 import { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
-import Link from 'next/link'
 import Router from 'next/router'
 import Cookies from 'cookies'
 import Head from 'next/head'
 import CancelIcon from '@material-ui/icons/Cancel';
-import DashboardHeader from "../../../components/dashboard/DashboardHeader";
 
-const Create = ({me})=> {
+
+const TextEditor = ({me})=> {
 
     const [ title, setTitle ] = useState("");
     const [tags, setTags] = useState([]);
     const [ img, setImg ] = useState("");
-    const [ value, setValue ] = useState("");
+    const [ content, setContent ] = useState();
 
-    // CKEDITOR
-    const editorRef = useRef()
-    const [editorLoaded, setEditorLoaded] = useState(false)
-    const { CKEditor, DecoupledEditor } = editorRef.current || {}
-
-    useEffect(() => {
-        editorRef.current = {
-            CKEditor: require('@ckeditor/ckeditor5-react'),
-            DecoupledEditor: require('@ckeditor/ckeditor5-build-decoupled-document')
-        }
-        setEditorLoaded(true)
-    }, [])
-    // CKEDITOR
+    const  handleEditorChange = (content, editor) => {
+        setContent(content)
+    }
 
     const addTags = event => {
         if (event.key === "Enter" && event.target.value !== "") {
@@ -38,11 +31,6 @@ const Create = ({me})=> {
     const removeTags = index => {
         setTags([...tags.filter(tag => tags.indexOf(tag) !== index)]);
     };
-
-    const handleOnChange = (e, editor) => {
-        const data = editor.getData();
-        setValue(data)
-    }
 
     const onChangeTitle = (e) => {
         setTitle(e.target.value)
@@ -56,7 +44,7 @@ const Create = ({me})=> {
           tags: tags,
           img: img,
           author: me.username,
-          body: value,
+          body: content,
         }
 
         axios.post('http://localhost:3000/api/posts', posts);
@@ -65,11 +53,11 @@ const Create = ({me})=> {
     }
 
     return(
-        <div className="create-page">
+        <div className="editor">
             <Head>
                 <title>Admin Page - Create Post</title>
-            </Head>    
-            <form onSubmit={onSubmit} >
+            </Head>  
+            <form onSubmit={onSubmit}>
                 <div className="createpost-header">
                     <div className="row">
                         <input className="title-input input" type="text" placeholder="Title" onChange={onChangeTitle}/>
@@ -80,7 +68,26 @@ const Create = ({me})=> {
                     </div>
                 </div>
             </form>
-            { editorLoaded ? <CKEditor onInit={ editor => { editor.ui.getEditableElement().parentElement.insertBefore(editor.ui.view.toolbar.element,editor.ui.getEditableElement());} }editor={ DecoupledEditor }onChange={handleOnChange}/> : <div></div>}
+            <NoSSR>
+                <Editor
+                apiKey='xh879tp8alk4yggmhl4kmaba49t4dowcwpdif3wciakn2mqk'
+                initialValue={content}
+                init={{
+                height: 500,
+                menubar: 'insert',
+                plugins: [
+                    'advlist autolink lists link image charmap print preview anchor',
+                    'searchreplace visualblocks code fullscreen',
+                    'insertdatetime media table paste code help wordcount'
+                ],
+                toolbar:
+                    'undo redo | formatselect | bold italic backcolor | \
+                    alignleft aligncenter alignright alignjustify | \
+                    bullist numlist outdent indent image | code | removeformat | help'
+                }}
+                onEditorChange={handleEditorChange}
+                />
+            </NoSSR>
             <div className="dashboard-content">
             <div className="tags-input">
                 <ul id="tags">
@@ -104,12 +111,11 @@ const Create = ({me})=> {
             </div>
             <input className="input img-input" type="text" placeholder="Insert image url here" onChange={(e) => setImg(e.target.value)}/>
             </div>
-            {/* <div className="preview">
-                {ReactHTMLParser(value)}
-            </div> */}
-
             <style jsx>{`
 
+            .editor{
+                height:calc(100vh - 60px);
+            }
             .create-page{
                 padding-bottom:40px;
             }
@@ -151,14 +157,14 @@ const Create = ({me})=> {
             .tags-input input:focus {
                 outline: transparent;
             }
-            
+
             #tags {
                 display: flex;
                 flex-wrap: wrap;
                 padding: 0;
                 margin: 8px 0 0 0;
             }
-            
+
             .tag {
                 width: auto;
                 height: 32px;
@@ -197,6 +203,7 @@ const Create = ({me})=> {
                 display:flex;
                 flex-direction:column;
                 padding: 10px 5%;
+                border-bottom: 1px solid #ccc;
             }
             form{
                 display: flex;
@@ -219,7 +226,7 @@ const Create = ({me})=> {
                 padding: 10px;
                 background: #fff;
             }
-            
+
             `}</style>
         </div>
     )
@@ -251,4 +258,4 @@ export async function getServerSideProps({req, res}) {
 
 }
 
-export default Create;
+export default TextEditor;

@@ -10,13 +10,12 @@ import Head from 'next/head'
 import CancelIcon from '@material-ui/icons/Cancel';
 
 
-const Edit = ({postData})=> {
+const TextEditor = ({me})=> {
 
-
-    const [ title, setTitle ] = useState(postData.title);
-    const [tags, setTags] = useState(postData.tags);
-    const [ img, setImg ] = useState(postData.img);
-    const [ content, setContent ] = useState(postData.body);
+    const [ title, setTitle ] = useState("");
+    const [tags, setTags] = useState([]);
+    const [ img, setImg ] = useState("");
+    const [ content, setContent ] = useState();
 
     const  handleEditorChange = (content, editor) => {
         setContent(content)
@@ -44,26 +43,31 @@ const Edit = ({postData})=> {
           title: title,
           tags: tags,
           img: img,
-          author: postData.username,
+          author: me.username,
           body: content,
         }
 
-        const postId = postData._id
-
-        axios.put(`http://localhost:3000/api/posts/${postId}`, posts);
-    
-        Router.push('/dashboard')
+        axios.post('http://localhost:3000/api/posts', posts);
+        
+        Router.push('/dashboard');
     }
+
+    const models = {
+        title,
+        tags,
+        img,
+        author: me.username,
+        body: content
+    }
+
+    console.log(models)
 
     return(
         <div className="editor">
-            <Head>
-                <title>Admin Page - Create Post</title>
-            </Head>  
             <form onSubmit={onSubmit}>
                 <div className="createpost-header">
                     <div className="row">
-                        <input className="title-input input" type="text" placeholder="Title" onChange={onChangeTitle} value={title} />
+                        <input className="title-input input" type="text" placeholder="Title" onChange={onChangeTitle}/>
                         <div className="createpost-button">
                             <button className="btn btn-primary">Publish</button>
                             <Link href="/dashboard"><button className="btn btn-primary cancel-button">Cancel</button></Link>
@@ -81,12 +85,12 @@ const Edit = ({postData})=> {
                 plugins: [
                     'advlist autolink lists link image charmap print preview anchor',
                     'searchreplace visualblocks code fullscreen',
-                    'insertdatetime media table paste code help wordcount codesample'
+                    'insertdatetime media table paste code help wordcount'
                 ],
                 toolbar:
                     'undo redo | formatselect | bold italic backcolor | \
                     alignleft aligncenter alignright alignjustify | \
-                    bullist numlist outdent indent | image | code codesample | removeformat | help'
+                    bullist numlist outdent indent image | code | removeformat | help'
                 }}
                 onEditorChange={handleEditorChange}
                 />
@@ -107,13 +111,12 @@ const Edit = ({postData})=> {
                 </ul>
                 <input
                     className="tag-input"
-                    defaultValue={tags}
                     type="text"
                     onKeyUp={event => event.key === "Enter" ? addTags(event) : null}
                     placeholder="Press enter to add tags"
                 />
             </div>
-            <input value={img} className="input img-input" type="text" placeholder="Insert image url here" onChange={(e) => setImg(e.target.value)}/>
+            <input className="input img-input" type="text" placeholder="Insert image url here" onChange={(e) => setImg(e.target.value)}/>
             </div>
             <style jsx>{`
 
@@ -205,7 +208,6 @@ const Edit = ({postData})=> {
             }
             .createpost-header{
                 display:flex;
-                border-bottom: 1px solid #ccc;
                 flex-direction:column;
                 padding: 10px 5%;
             }
@@ -236,7 +238,7 @@ const Edit = ({postData})=> {
     )
 }
 
-Edit.getInitialProps = async ( {query: { id }, req, res } )=> {
+export async function getServerSideProps({req, res}) {
     const cookie = new Cookies(req);
     const token = cookie.get('_token');
 
@@ -250,12 +252,16 @@ Edit.getInitialProps = async ( {query: { id }, req, res } )=> {
         }
     }
 
-    const respond = await fetch(`http://localhost:3000/api/posts/${id}`)
+    const respond = await fetch('http://localhost:3000/api/auth/me',{
+        headers: {
+            'x-access-token': token,
+        }
+    })
 
     const { data } = await respond.json();
 
-    return { postData: data }
+    return { props: { me: data } }
 
 }
 
-export default Edit;
+export default TextEditor;

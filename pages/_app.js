@@ -1,4 +1,5 @@
 import '../pages/main.scss';
+import '../pages/prism.css'
 
 import NextNProgress from '../components/NextNProgress';
 
