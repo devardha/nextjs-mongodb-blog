@@ -48,7 +48,7 @@ export default function(){
             .blog-post{
                 margin-bottom:70px;
                 padding-bottom:70px;
-                border-bottom:2px solid #eee;
+                border-bottom:1px solid #eee;
             }
             img{
                 margin-top:5px;

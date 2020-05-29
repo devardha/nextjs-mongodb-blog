@@ -48,12 +48,14 @@ const Overview = (props)=> {
             background-color:none;
         }
         .grid-item .card{
-            background: -webkit-gradient(linear,left top,left bottom,from(#2d97ff),to(#0081ff));
+            background-color:buttonface;
+            border-width: 2px;
+            border-style: outset;
+            border-color: buttonface;
             min-width:100%;
             height:130px;
             border-radius:5px;
-            cursor:pointer;
-            color:#fff;
+            color:#000;
 
             display:flex;
             flex-direction:column;

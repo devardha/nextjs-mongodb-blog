@@ -17,7 +17,7 @@ const Footer = ()=> {
             cursor:pointer;
         }
         .github-icon:hover{
-            color:#037af0;
+            color:rgb(255, 20, 147);
         }
         .footer{
             width:100%;

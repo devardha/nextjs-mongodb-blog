@@ -8,7 +8,6 @@ const Layout = (props)=> {
 
             <Navbar/>
             {props.children}
-            {/* <DarkModeButton/> */}
             <Footer/>
         </div>
     )

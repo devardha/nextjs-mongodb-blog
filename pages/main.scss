@@ -97,11 +97,11 @@ body{
 
 body::-webkit-scrollbar {
   width: .6em;
-  background-color: #e8e8e8;
+  background-color: #111;
 }
  
 body::-webkit-scrollbar-thumb {
-  background-color: #0081ff;
+  background-color: rgb(255, 20, 147);
 }
 
 // Links
@@ -111,7 +111,7 @@ a{
     cursor: pointer;
 }
 a:hover{
-  color: #037af0;
+  color: rgb(255, 20, 147);
 }
 p{
     font-weight: 300;
@@ -143,16 +143,23 @@ h6{
 // Button
 .btn{
   padding: .5rem .8rem;
-  border: none;
   font-size: .9rem;
   border-radius:3px;
+  font-weight: 400;
   cursor: pointer;
-  box-shadow: #037af0 0px -1px 0px inset;
 }
 
 .btn-primary{
-  background: -webkit-gradient(linear,left top,left bottom,from(#2d97ff),to(#0081ff));
-  color:#fff;
+  border: none;
+  box-shadow: rgb(255,20,147) 0px -1px 0px inset;
+  background: rgb(255,20,147);
+  color: #fff;
+  font-weight: 300;
+  font-size: .9rem;
+}
+
+::selection{
+  background-color:rgba(255,20,147, 0.99);
 }
 
 // Icon
@@ -164,6 +171,14 @@ h6{
 }
 .calendar-icon{
   margin-left:10px;
+}
+
+.darkmode-toggle{
+  margin-left:2rem;
+  cursor: pointer;
+}
+.darkmode-toggle:hover{
+  color:rgb(255, 20, 147);
 }
 
 p span{

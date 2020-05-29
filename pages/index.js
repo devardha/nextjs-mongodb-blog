@@ -38,7 +38,7 @@ export default function({posts}){
                 display:flex;
                 flex-direction:column;
                 width:100%;
-                padding: 70px 10% 70px 10%;
+                padding: 70px 20% 70px 20%;
             }
             
             `}</style>

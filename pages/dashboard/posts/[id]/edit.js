@@ -66,8 +66,8 @@ const Edit = ({postData})=> {
                     <div className="row">
                         <input className="title-input input" type="text" placeholder="Title" onChange={onChangeTitle} value={title} />
                         <div className="createpost-button">
-                            <button className="btn btn-primary">Publish</button>
-                            <Link href="/dashboard"><button className="btn btn-primary cancel-button">Cancel</button></Link>
+                            <button className="btn">Publish</button>
+                            <Link href="/dashboard"><button className="btn cancel-button">Cancel</button></Link>
                         </div>
                     </div>
                 </div>
@@ -175,13 +175,17 @@ const Edit = ({postData})=> {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: #fff;
+                color: #000;
                 padding: 0 8px;
                 font-size: 14px;
                 list-style: none;
                 border-radius: 6px;
                 margin: 0 8px 8px 0;
-                background: #0081ff;
+                
+                background-color:buttonface;
+                border-width: 2px;
+                border-style: outset;
+                border-color: buttonface;
             }
             .dashboard-content{
                 padding:10px 15%;

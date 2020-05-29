@@ -5,8 +5,8 @@ import reactHTMLParser from 'react-html-parser'
 
 const HomePost = (props)=> {
 
-    const userIcon = <span className="post-icon"><PersonOutlineIcon style={{ fontSize: '1.2rem' }}/></span>
-    const dateIcon = <span className="post-icon calendar-icon"><DateRangeIcon style={{ fontSize: '1.2rem' }}/></span>
+    const userIcon = <span className="post-icon"><PersonOutlineIcon style={{ fontSize: '1rem' }}/></span>
+    const dateIcon = <span className="post-icon calendar-icon"><DateRangeIcon style={{ fontSize: '1rem' }}/></span>
     const label = props.label;
 
     const now = new Date(props.date)
@@ -35,20 +35,23 @@ const HomePost = (props)=> {
                     <Link href={`/blog/[slug]`} as={`/blog/${props.slug}`}><a className="post-title">{props.title}</a></Link>
                     <h3 className="post-detail">{userIcon} By {props.author} {dateIcon} {time}</h3>
                     <div className="details">
-                        <p>{text.slice(3, 160)} ...</p>
+                        <p>{text.slice(3, 100)} ...</p>
                     </div>
                 </div>
             </div>
         </div>
         <style jsx>{`
 
+        p{
+            font-size:1rem;
+        }
         .post-title{
-            cursor:pointer;
-            font-size:2.5rem;
-            font-weight:800;
+            cursor: pointer;
+            font-size: 1.8rem;
+            font-weight: 800;
         }
         .post-title:hover{
-            color:#0081ff;
+            color: rgb(255, 20, 147);
         }
         img{
             height: 100%;
@@ -56,7 +59,7 @@ const HomePost = (props)=> {
             object-fit: cover;
         }
         .post-detail{
-            font-size:.9rem;
+            font-size:.8rem;
             font-family: 'Open Sans', sans-serif;
             margin-top:10px;
             color:#999;
@@ -69,8 +72,10 @@ const HomePost = (props)=> {
             margin-bottom:10px;
         }
         .labels li{
-            background: #0081ff;
+            background: rgb(255, 20, 147);
             color: #fff;
+            font-weight: 300;
+            font-size: .9rem;
             padding: .5rem;
             border-radius: 5px;
             margin: 0 10px 0 0;
@@ -90,15 +95,16 @@ const HomePost = (props)=> {
         .post-item{
             display: flex;
             padding-bottom:1.5rem;
+            justify-content: center;
             margin-bottom:1.5rem;
         }
         .thumbnail{
-            height:240px;
-            width:30%;
-            background-color:#eee;
+            height: 200px;
+            width: 35%;
+            background-color: #eee;
         }
         .preview{
-            width:70%;
+            width:65%;
             display:flex;
             flex-direction:column;
             align-items: flex-start;

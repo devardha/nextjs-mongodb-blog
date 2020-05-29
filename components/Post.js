@@ -54,8 +54,9 @@ const Post = (props)=> {
             margin-bottom:10px;
         }
         .labels li{
-            background: #0081ff;
+            background: rgb(255, 20, 147);
             color: #fff;
+            font-weight: 300;
             padding: .5rem;
             border-radius: 5px;
             margin: 0 5px;

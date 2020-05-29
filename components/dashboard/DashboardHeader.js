@@ -29,16 +29,16 @@ const DashboardHeader = ()=> {
 
     return(
         <div>
-            <div className="dashboard-header">
+            {/* <div className="dashboard-header">
                 <p className="header-time">{dateNow}</p>
-            </div>
+            </div> */}
             <div className="dashboard-nav" >
                 <Link activeClassName="active" href="/dashboard"><a className="nav-link" ><span className="header-icon"><DashboardIcon style={{ fontSize: '1rem'}}/></span>Dasboard</a></Link>
                 <Link activeClassName="active" href="/dashboard/posts"><a className="nav-link" ><span className="header-icon"><AssignmentIcon style={{ fontSize: '1rem' }}/></span>Posts</a></Link>
                 <Link activeClassName="active" href="/dashboard/projects"><a className="nav-link" ><span className="header-icon"><StarIcon style={{ fontSize: '1rem' }}/></span>Projects</a></Link>
                 <Link activeClassName="active" href="/dashboard/gallery"><a className="nav-link" ><span className="header-icon"><PhotoCameraIcon style={{ fontSize: '1rem' }}/></span>Gallery</a></Link>
                 <span className="user-info">
-                    <a className="logout btn-primary btn" onClick={logout}>Sign Out</a>
+                    <button className="logout btn" onClick={logout}>Sign Out</button>
                     {/* <button className="user-image"></button> */}
                 </span>
             </div>
@@ -49,9 +49,6 @@ const DashboardHeader = ()=> {
                 margin-left:auto;
                 align-items:center;
                 position:relative;
-            }
-            .logout:hover{
-                color:#fff;
             }
             .user-image{
                 height:30px;
@@ -64,6 +61,7 @@ const DashboardHeader = ()=> {
             }
             .active{
                 background-color:#f8f8f8;
+                color:rgb(255, 20, 147);
             }
             .dashboard-header{
                 display:flex;
@@ -87,7 +85,7 @@ const DashboardHeader = ()=> {
             .header-icon{
                 transform: translateY(2px);
                 margin-right:5px;
-                color:#aaa;
+                color:inherit;
             }
             .nav-link{
                 padding: 15px 20px;
@@ -96,6 +94,9 @@ const DashboardHeader = ()=> {
                 font-weight: 300;
                 display:flex;
                 align-items:center;
+            }
+            .nav-link:hover{
+                color:rgb(255, 20, 147);
             }
             
             `}</style>
