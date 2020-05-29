@@ -2,7 +2,7 @@ import Link from './Link'
 import SearchIcon from '@material-ui/icons/Search';
 import { useState, useEffect, useRef } from 'react'
 import Brightness2Icon from '@material-ui/icons/Brightness2';
-
+import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
 import useDarkMode from 'use-dark-mode';
 
 
@@ -21,7 +21,7 @@ const Navbar = ()=> {
                 <Link activeClassName="active" href="/gallery"><a className="nav-link">Gallery</a></Link>
                 <div className="search">
                     <span className="search-icon" onClick={() => setOnSearch(!onSearch)}><SearchIcon/></span>
-                    <span className="darkmode-toggle" onClick={darkMode.toggle}><Brightness2Icon/></span>
+                    <span className="darkmode-toggle" onClick={darkMode.toggle}>{darkMode.value ? <BrightnessHighIcon/> : <Brightness2Icon/>}</span>
                 </div>
             </div>
         </div>
@@ -31,8 +31,11 @@ const Navbar = ()=> {
 
         {
             darkMode.value
-            ? <style jsx global>{`
+            ? <style jsx="true" global>{`
             
+            body::-webkit-scrollbar {
+                background-color: #111 !important;
+            }
             .blog-post{
                 border-bottom:1px solid #232323 !important;
             }
