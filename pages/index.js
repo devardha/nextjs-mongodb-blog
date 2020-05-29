@@ -2,6 +2,7 @@ import Layout from '../components/Layout'
 import Post from '../components/Post'
 import Head from 'next/head'
 import HomePost from '../components/HomePost';
+import { useState, useEffect } from 'react'
 
 export default function({posts}){
 
@@ -31,8 +32,8 @@ export default function({posts}){
                     }) }
                 </div>
             </div>
-            <style jsx>{`
-            
+            <style jsx global>{`
+
             .post-feed{
                 display:flex;
                 flex-direction:column;

@@ -39,11 +39,14 @@ const Post = (props)=> {
                 </div>
             </div>
         </div>
+
         <style jsx>{`
         
         .post{
             text-align:justify;
             line-height: 30px;
+            display:flex;
+            flex-direction:column;
         }
         .labels{
             display:flex;
@@ -86,6 +89,7 @@ const Post = (props)=> {
         .post-body{
             margin-top:20px;
         }
+
 
         `}</style>
         </>

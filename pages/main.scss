@@ -1,18 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap');
-
-// LightMode
-:root {
-  --bg-color: #fff;
-  --text-color: #000;
-}
-
-// DarkMode
-[data-theme="dark"] {
-  --bg-color: #000;
-  --text-color: #fff;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400&display=swap');
 
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
 html,
@@ -178,8 +166,39 @@ h6{
   margin-left:10px;
 }
 
+p span{
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: 'Roboto Mono', monospace;;
+  font-weight:300;
+}
+
 .post p{
   margin-bottom:20px;
+}
+.post-body h2{
+  margin-bottom:1.1rem;
+  position: relative;
+  align-self: flex-start;
+
+  &::before{
+    content: "";
+    width: 101%;
+    height: 16px;
+    display: block;
+    position: absolute;
+    bottom: -7px;
+    z-index: -1;
+    background-color: #84ffb5;
+  }
+}
+
+.post img{
+  height: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  max-width: 100%;
 }
 
 .ck-editor__editable_inline{
@@ -205,24 +224,6 @@ h6{
 .post-icon{
   transform: translateY(3px);
   margin-right: 5px
-}
-
-blockquote{
-  padding: 24px 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  font-family: monospace;
-  background: #222;
-  margin-bottom: 20px;
-
-  p{
-    margin-bottom: 0px !important;
-    font-family: "Source Code Pro", monospace;
-    font-weight: 400;
-    font-size: 14px;
-    color: #fff;
-    line-height: 1.5rem;
-  }
 }
 
 .tox .tox-sidebar-wrap{

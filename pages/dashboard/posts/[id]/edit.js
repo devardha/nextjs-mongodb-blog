@@ -46,6 +46,7 @@ const Edit = ({postData})=> {
           img: img,
           author: postData.username,
           body: content,
+          slug: postData.slug
         }
 
         const postId = postData._id
@@ -107,7 +108,6 @@ const Edit = ({postData})=> {
                 </ul>
                 <input
                     className="tag-input"
-                    defaultValue={tags}
                     type="text"
                     onKeyUp={event => event.key === "Enter" ? addTags(event) : null}
                     placeholder="Press enter to add tags"

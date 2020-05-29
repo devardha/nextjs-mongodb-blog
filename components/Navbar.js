@@ -1,21 +1,14 @@
 import Link from './Link'
 import SearchIcon from '@material-ui/icons/Search';
-import { useState, useEffect } from 'react'
-import Brightness2Icon from '@material-ui/icons/Brightness2';
+import { useState } from 'react'
 
 const Navbar = ()=> {
 
     const [ onSearch, setOnSearch ] = useState(false);
-    const [ darkMode, setDarkMode ] = useState(false);
-
-    useEffect(() => {
-        console.log(`Is in dark mode? ${darkMode}`);
-        localStorage.setItem("DARK_MODE", darkMode);
-    }, [darkMode]);
 
     return(
         < >
-        <div className="navbar" data-theme={darkMode ? "dark" : "light"} >
+        <div className="navbar">
             <div className="nav-links">
                 <Link activeClassName="active" href="/"><a className="nav-link">Blog</a></Link>
                 <Link activeClassName="active" href="/about"><a className="nav-link">About</a></Link>
@@ -23,14 +16,13 @@ const Navbar = ()=> {
                 <Link activeClassName="active" href="/gallery"><a className="nav-link">Gallery</a></Link>
                 <div className="search">
                     <span className="search-icon" onClick={() => setOnSearch(!onSearch)}><SearchIcon/></span>
-                    <span className="darkmode-toggle" onClick={() => setDarkMode(!darkMode)}><Brightness2Icon/></span>
                 </div>
             </div>
         </div>
         <div className="searchbar">
-            <input type="text" placeholder="Search here..."/>
+            <input type="text" placeholder="Search here..." className="search-input"/>
         </div>
-        <style jsx>{`
+        <style global="true">{`
         
         .darkmode-toggle{
             margin-left:20px;
@@ -51,7 +43,7 @@ const Navbar = ()=> {
             display:flex;
             justify-content:center;
         }
-        input{
+        .search-input{
             height:40px;
             width:60%;
             margin:20px 0;
@@ -62,7 +54,7 @@ const Navbar = ()=> {
             position:relative;
             background-color:#f9f9f9;
         }
-        input::placeholder{
+        .search-input::placeholder{
             font-size:.9rem;
             font-family:-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
             font-weight:300;

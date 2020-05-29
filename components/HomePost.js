@@ -1,7 +1,7 @@
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import DateRangeIcon from '@material-ui/icons/DateRange';
-import reactHTMLParser from 'react-html-parser'
 import Link from 'next/link'
+import reactHTMLParser from 'react-html-parser'
 
 const HomePost = (props)=> {
 
@@ -16,6 +16,8 @@ const HomePost = (props)=> {
     const date = now.getDate();
 
     const time = `${month}  ${date}  ${year}`
+
+    const text = props.body;
 
     return(
         <>
@@ -33,9 +35,7 @@ const HomePost = (props)=> {
                     <Link href={`/blog/[slug]`} as={`/blog/${props.slug}`}><a className="post-title">{props.title}</a></Link>
                     <h3 className="post-detail">{userIcon} By {props.author} {dateIcon} {time}</h3>
                     <div className="details">
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum atque soluta placeat sed vero tempora culpa eligendi quia distinctio dicta explicabo, saepe quas id. Veniam a dolorum magnam accusantium mollitia.
-                        </p>
+                        <p>{text.slice(3, 160)} ...</p>
                     </div>
                 </div>
             </div>

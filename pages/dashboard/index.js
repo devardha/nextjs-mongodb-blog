@@ -6,7 +6,7 @@ import Cookies from 'cookies'
 import Router from 'next/router';
 import Head from 'next/head'
 
-const Dashboard = ({post, authenticate})=> {
+const Dashboard = ({post})=> {
 
     const data = post;
 
@@ -50,7 +50,7 @@ export async function getServerSideProps({req, res}) {
     const respond = await fetch(`http://localhost:3000/api/posts`);
     const { data } = await respond.json();
 
-    return { props: { post: data, authenticate: true } }
+    return { props: { post: data } }
 
 }
 

@@ -7,10 +7,8 @@ async function dbConnect(){
         return;
     }
 
-    const db = await Mongoose.connect(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
+    const db = await Mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
+        .catch(err => { console.log(err.message)});
 
     connection.isConnected = db.connections[0].readyState;
 }

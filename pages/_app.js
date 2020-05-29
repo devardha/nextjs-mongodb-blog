@@ -1,10 +1,18 @@
 import '../pages/main.scss';
-import '../pages/prism.css'
+import '../pages/prism.css';
+import '../pages/prism.js';
+
+import { useEffect } from 'react'
+
 
 import NextNProgress from '../components/NextNProgress';
 
 const MyApp = (props) => {
     const { Component, pageProps } = props;
+
+    useEffect(()=> {
+        Prism.highlightAll();
+    })
 
     return (
         <>

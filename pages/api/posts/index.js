@@ -16,7 +16,7 @@ export default async (req, res)=> {
                 res.status(200).json({ success: true, data: posts });
                 
             } catch(error){
-                res.status(400).json({ success: false });
+                res.status(400).json({ success: false, error });
             }
             break;
 
@@ -28,7 +28,7 @@ export default async (req, res)=> {
                 res.status(201).json({ success: true, data: posts })
                 
             } catch(error){
-                res.status(400).json({ success: false });
+                res.status(400).json({ success: false, error });
             }
             break;
             
