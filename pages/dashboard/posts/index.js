@@ -34,7 +34,7 @@ export async function getServerSideProps({req, res}) {
         }
     }
 
-    const respond = await fetch('http://dev-ardha-blog.now.sh/api/posts')
+    const respond = await fetch('https://dev-ardha-blog.now.sh/api/posts')
     const posts = await respond.json()
   
 
