@@ -47,9 +47,8 @@ export default function({posts}){
     )
 }
 
-export async function getStaticProps({req}) {
-    const dev = process.env.NODE_ENV !== 'production';
-    const res = await axios.get(`${dev ? 'http://localhost:3000' : process.env.DOMAIN }/api/posts`)
+export async function getStaticProps() {
+    const res = await axios.get(`${process.env.DOMAIN}/api/posts`)
     const posts = await res.data
 
     return { props: { posts } }
