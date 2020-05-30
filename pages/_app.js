@@ -1,5 +1,6 @@
 import '../public/main.scss';
 import '../public/prism.css';
+import Prism from '../public/prism'
 
 import { useEffect, useState } from 'react'
 

@@ -3,6 +3,7 @@ import Post from '../components/Post'
 import Head from 'next/head'
 import HomePost from '../components/HomePost';
 import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 export default function({posts}){
 
@@ -46,9 +47,10 @@ export default function({posts}){
     )
 }
 
-export async function getStaticProps() {
-    const res = await fetch('https://dev-ardha-blog.now.sh/api/posts')
-    const posts = await res.json()
+export async function getStaticProps({req}) {
+    const dev = process.env.NODE_ENV !== 'production';
+    const res = await axios.get(`${dev ? 'http://localhost:3000' : process.env.DOMAIN }/api/posts`)
+    const posts = await res.data
 
     return { props: { posts } }
 }
