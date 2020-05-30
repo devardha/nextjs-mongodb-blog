@@ -20,6 +20,10 @@ app.prepare().then(() => {
   // Server-side
   const route = pathMatch();
 
+  server.get('/api/posts', (req, res) => {
+    return app.render(req, res, '/search', req.query);
+  });
+
   server.get('*', (req, res) => {
     return handle(req, res);
   });
