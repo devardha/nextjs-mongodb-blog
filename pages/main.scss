@@ -184,6 +184,12 @@ h6{
 .darkmode-toggle:hover{
   color:rgb(255, 20, 147);
 }
+.navbar-toggle{
+  display: none;
+}
+.navbar-toggle svg{
+  font-size: 2rem;
+}
 
 p span{
   padding: 2px 5px;
@@ -271,4 +277,72 @@ p span{
 
 .tox .tox-menubar+.tox-toolbar, .tox .tox-menubar+.tox-toolbar-overlord .tox-toolbar__primary{
   padding: 0 5% !important;
+}
+
+// Responsive Design
+@media(max-width:1024px){
+  .navbar{
+    margin-top: -240px;
+  }
+  .navbar-active{
+    margin-top: 0px;
+  }
+  .navbar-toggle{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .post-feed{
+    padding: 70px 5% 70px 5%;
+  }
+  .post-item{
+    flex-direction: column !important;
+  }
+  .post-title{
+    font-size: 2rem;
+  }
+  .thumbnail{
+    width:100% !important;
+    height: 100% !important;
+  }
+  .preview{
+    width:100% !important;
+    margin-top: 20px;
+  }
+  .nav-links{
+    flex-direction: column;
+  }
+  .search{
+    margin-bottom: 20px;
+  }
+
+  // POST PAGE
+  .content .post-feed{
+    padding:70px 5% 70px 5% !important;
+  }
+  .blog-post .post-title{
+    font-size: 2.5rem !important;
+  }
+  .content{
+    .author-name{
+      font-size: .9rem !important;
+    }
+    .post-icon svg{
+      font-size: .9rem !important;
+    }
+    .post-body h2{
+      font-size: 1.2rem;
+
+      &::before{
+        height: 12px;
+        bottom: 0;
+      }
+    }
+  }
+
+  // DASHBOARD PAGE
+  .dashboard-nav{
+    flex-direction: column;
+  }
 }

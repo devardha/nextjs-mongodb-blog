@@ -4,16 +4,20 @@ import { useState, useEffect, useRef } from 'react'
 import Brightness2Icon from '@material-ui/icons/Brightness2';
 import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
 import useDarkMode from 'use-dark-mode';
-
+import MenuIcon from '@material-ui/icons/Menu';
 
 const Navbar = ()=> {
 
     const [ onSearch, setOnSearch ] = useState(false);
+    const [ navToggle, setNavToggle ] = useState(false);
     const darkMode = useDarkMode(false);
+
+    console.log(navToggle)
+ 
 
     return(
         < >
-        <div className="navbar">
+        <div className={`navbar ${ navToggle ? 'navbar-active' : '' }`}>
             <div className="nav-links">
                 <Link activeClassName="active" href="/"><a className="nav-link">Blog</a></Link>
                 <Link activeClassName="active" href="/about"><a className="nav-link">About</a></Link>
@@ -23,6 +27,7 @@ const Navbar = ()=> {
                     <span className="search-icon" onClick={() => setOnSearch(!onSearch)}><SearchIcon/></span>
                     <span className="darkmode-toggle" onClick={darkMode.toggle}>{darkMode.value ? <BrightnessHighIcon/> : <Brightness2Icon/>}</span>
                 </div>
+                <span className="navbar-toggle" onClick={()=> setNavToggle(!navToggle)}><MenuIcon/></span>
             </div>
         </div>
         <div className="searchbar">
@@ -109,14 +114,11 @@ const Navbar = ()=> {
             .navbar{
                 width:100%;
                 background-color:#111213;
-            }
-            .navbar{
-                border-bottom:0px solid #eee;
+                border-bottom: 1px solid #1d1d1d;
             }
 
             `}</style>
-            : <style jsx>{`
-            
+            : <style jsx="true">{`
             .search-icon:hover{
                 color:rgb(255, 20, 147);
             }
