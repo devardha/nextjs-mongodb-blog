@@ -21,7 +21,7 @@ app.prepare().then(() => {
   const route = pathMatch();
 
   server.get('/api/posts', (req, res) => {
-    return app.render(req, res, '/search', req.query);
+    return app.render(req, res);
   });
 
   server.get('*', (req, res) => {
