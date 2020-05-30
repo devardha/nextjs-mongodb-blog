@@ -31,7 +31,7 @@ const Navbar = ()=> {
 
         {
             darkMode.value
-            ? <style jsx="true" global>{`
+            ? <style jsx="true" global="true">{`
             
             body::-webkit-scrollbar {
                 background-color: #111 !important;
@@ -167,7 +167,7 @@ const Navbar = ()=> {
                 width:100%;
             }
             .navbar{
-                border-bottom:0px solid #eee;
+                border-bottom:1px solid #eee;
             }
 
             `}</style>

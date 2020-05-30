@@ -48,14 +48,11 @@ const Overview = (props)=> {
             background-color:none;
         }
         .grid-item .card{
-            background-color:buttonface;
-            border-width: 2px;
-            border-style: outset;
-            border-color: buttonface;
+            background-color:rgb(255, 20, 147);
             min-width:100%;
             height:130px;
             border-radius:5px;
-            color:#000;
+            color:#fff;
 
             display:flex;
             flex-direction:column;

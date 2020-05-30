@@ -38,7 +38,7 @@ const DashboardHeader = ()=> {
                 <Link activeClassName="active" href="/dashboard/projects"><a className="nav-link" ><span className="header-icon"><StarIcon style={{ fontSize: '1rem' }}/></span>Projects</a></Link>
                 <Link activeClassName="active" href="/dashboard/gallery"><a className="nav-link" ><span className="header-icon"><PhotoCameraIcon style={{ fontSize: '1rem' }}/></span>Gallery</a></Link>
                 <span className="user-info">
-                    <button className="logout btn" onClick={logout}>Sign Out</button>
+                    <button className="logout btn btn-primary" onClick={logout}>Sign Out</button>
                     {/* <button className="user-image"></button> */}
                 </span>
             </div>
@@ -60,8 +60,11 @@ const DashboardHeader = ()=> {
                 position:relative;
             }
             .active{
-                background-color:#f8f8f8;
-                color:rgb(255, 20, 147);
+                border-bottom:2px solid rgb(255, 20, 147);
+                color:rgb(255, 20, 147) !important;
+            }
+            .active .nav-link{
+                color:rgb(255, 20, 147) !important;
             }
             .dashboard-header{
                 display:flex;
@@ -89,9 +92,9 @@ const DashboardHeader = ()=> {
             }
             .nav-link{
                 padding: 15px 20px;
-                color:#222;
+                color:#000;
                 font-size:.9rem;
-                font-weight: 300;
+                font-weight: 400;
                 display:flex;
                 align-items:center;
             }

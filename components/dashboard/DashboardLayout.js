@@ -11,6 +11,9 @@ const DasboardLayout = (props) => {
             </div>
             <style jsx global>{`
             
+            body{
+                background-color
+            }
             .dashboard-content{
                 padding:50px 10%;
             }

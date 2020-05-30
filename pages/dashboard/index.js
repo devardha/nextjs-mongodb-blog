@@ -16,7 +16,7 @@ const Dashboard = ({post})=> {
             <Head>
                 <title>Admin Page - Dashboard</title>
             </Head>
-            <Link href="/"><button className="btn">Visit Blog</button></Link>
+            <Link href="/"><button className="btn btn-primary">Visit Blog</button></Link>
             <div className="overview">
                 <Overview postCount={data.length}/>
             </div>

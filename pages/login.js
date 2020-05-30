@@ -33,11 +33,11 @@ export default ()=> {
             <form onSubmit={onSubmit}>
                 <div className="field">
                     <label htmlFor="email">Email</label>
-                    <input type="email" name="email" placeholder="Email"  onChange={(e)=> setEmail(e.target.value)}/>
+                    <input type="email" name="email" placeholder="Email"  onChange={(e)=> setEmail(e.target.value)} value={email}/>
                 </div>
                 <div className="field">
                     <label htmlFor="password">Password</label>
-                    <input type="password" name="password" placeholder="Password" onChange={(e)=> setPassword(e.target.value)}/>
+                    <input type="password" name="password" placeholder="Password" onChange={(e)=> setPassword(e.target.value)} value={password}/>
                 </div>
                 <button className="btn btn-primary">Login</button>
             </form>

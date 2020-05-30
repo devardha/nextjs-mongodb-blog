@@ -13,7 +13,7 @@ export default async (req, res)=>{
     if(method === 'GET'){
 
         // const token = cookie.get("_token")
-        const token = req.headers['x-access-token'];
+        let token = req.headers['x-access-token'];
         console.log(token)
         if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
 
