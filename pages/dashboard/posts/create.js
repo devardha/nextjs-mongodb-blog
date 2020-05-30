@@ -246,7 +246,7 @@ export async function getServerSideProps({req, res}) {
         }
     }
 
-    const respond = await fetch('https://dev-ardha-blog.now.sh/api/auth/me',{
+    const respond = await fetch('http://dev-ardha-blog.now.sh/api/auth/me',{
         headers: {
             'x-access-token': token,
         }
