@@ -17,7 +17,7 @@ export default ()=> {
           password: password
         }
 
-        axios.post('http://localhost:3000/api/auth/login', user)
+        axios.post('/api/auth/login', user)
              .then(res => Cookie.set("_token", res.data.token));
         
         Router.push('/dashboard');

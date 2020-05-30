@@ -1,6 +1,6 @@
 import '../pages/main.scss';
 import '../pages/prism.css';
-import '../pages/prism.js';
+import '../public/prism';
 
 import { useEffect, useState } from 'react'
 
