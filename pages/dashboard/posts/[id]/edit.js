@@ -250,7 +250,7 @@ Edit.getInitialProps = async ( {query: { id }, req, res } )=> {
         }
     }
 
-    const respond = await fetch(`http://localhost:3000/api/posts/${id}`)
+    const respond = await fetch(`dev-ardha-blog-14qyrawg5.now.sh/api/posts/${id}`)
 
     const { data } = await respond.json();
 

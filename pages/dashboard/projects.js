@@ -29,7 +29,7 @@ export async function getServerSideProps({req, res}) {
         }
     }
 
-    const respond = await fetch('http://localhost:3000/api/auth/me',{
+    const respond = await fetch('dev-ardha-blog-14qyrawg5.now.sh/api/auth/me',{
         headers: {
             'x-access-token': token,
         }

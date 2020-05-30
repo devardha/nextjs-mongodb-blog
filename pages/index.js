@@ -47,7 +47,7 @@ export default function({posts}){
 }
 
 export async function getStaticProps() {
-    const res = await fetch('http://localhost:3000/api/posts')
+    const res = await fetch('dev-ardha-blog-14qyrawg5.now.sh/api/posts')
     const posts = await res.json()
 
     return { props: { posts } }

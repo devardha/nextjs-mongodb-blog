@@ -47,7 +47,7 @@ export async function getServerSideProps({req, res}) {
         }
     }
 
-    const respond = await fetch(`http://localhost:3000/api/posts`);
+    const respond = await fetch(`dev-ardha-blog-14qyrawg5.now.sh/api/posts`);
     const { data } = await respond.json();
 
     return { props: { post: data } }
