@@ -1,5 +1,5 @@
-# Dev.Ardha Official Blog
-My official blog with CMS using Next.js, React, and MongoDB
+# Next.js MongoDb Blog
+Blog + CMS built with Next.js, React, and MongoDB
 
 ## Technology Stacks
 1. Next.js
@@ -9,4 +9,3 @@ My official blog with CMS using Next.js, React, and MongoDB
 5. Sass
 
 Feel free to clone this repository, and don't forget to give me a star:)
-You can read the process of how i made this project in my personal blog <http://www.ardhayudhatama.com>
