@@ -1,5 +1,5 @@
 # Next.js MongoDb Blog
-Blog + CMS built with Next.js, React, and MongoDB
+Blog + CMS built with Next.js, React, Express, and MongoDB
 
 ## Technology Stacks
 1. Next.js
